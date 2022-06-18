@@ -15,40 +15,44 @@
 With Go module support (Go 1.11+), simply add the following import
 
 ```go
+package test 
+
 import "github.com/goodjobtech/assert"
 ```
 
-Otherwise, to install the assert, run the following command:
+Otherwise, to install *assert*, run the following command:
 
 ```shell
-$ go get -u github.com/goodjobtech/assert
+go get -u github.com/goodjobtech/assert
 ```
 
 ## Usage
 
 ```go
-package something
+package test
 
-import "testing"
+import (
+	"github.com/goodjobtech/assert"
+	"testing"
+)
 
 func TestSomething(t *testing.T) {
-	Equal(t, 1, 1)
+	assert.Equal(t, 1, 1)
 
-	NotEqual(t, "abc", "def")
+	assert.NotEqual(t, "abc", "def")
 
-	Nil(t, nil)
+	assert.Nil(t, nil)
 
-	NotNil(t, "")
+	assert.NotNil(t, "")
 
-	Contains(t, []int{1, 2, 3}, 1)
+	assert.Contains(t, []int{1, 2, 3}, 1)
 
-	NotContains(t, []int{1, 2, 3}, 4)
+	assert.NotContains(t, []int{1, 2, 3}, 4)
 
-	True(t, true)
+	assert.True(t, true)
 
-	False(t, false)
+	assert.False(t, false)
 }
-
 ```
 
 
